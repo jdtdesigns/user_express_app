@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
-const cors = require('cors');
+// const cors = require('cors');
 
 const PORT = 3333;
 
@@ -26,7 +26,7 @@ app.use(express.json());
 app.use(express.static('./public'));
 
 // Open CORS to all domains
-app.use(cors());
+// app.use(cors());
 
 // Route to retreive/GET all users from the json database
 app.get('/api/users', async (requestObj, responseObj) => {
