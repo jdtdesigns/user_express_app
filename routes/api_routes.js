@@ -75,3 +75,11 @@ router.delete('/user/:id', async (requestObj, responseObj) => {
 });
 
 module.exports = router;
+
+// function filter(cb) {
+//   for (let item of arr) {
+//     cb(item);
+//   }
+// }
+
+// filter((obj) => obj.id !== 'some id');
