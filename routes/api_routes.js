@@ -71,6 +71,56 @@ router.get('/users/:id', async (requestObj, responseObj) => {
 
 });
 
+// GET Route to get the users and their associated books
+router.get('/books', async (requestObj, responseObj) => {
+  const sql = `
+    SELECT
+      users.id AS user_id,
+      username,
+      email,
+      books.id AS book_id,
+      title,
+      author,
+      release_date
+      FROM users
+      JOIN books ON books.user_id = users.id
+  `;
+
+  try {
+    const [books] = await db.query(sql);
+
+    responseObj.json(books);
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+
+// GET Route to get a single user's books
+router.get('/user/books', async (requestObj, responseObj) => {
+  const sql = `
+    SELECT
+      users.id AS user_id,
+      username,
+      email,
+      books.id AS book_id,
+      title,
+      author,
+      release_date
+      FROM users
+      JOIN books ON books.user_id = users.id
+      WHERE user_id = ?
+  `;
+
+  try {
+    const [books] = await db.query(sql, [requestObj.query.user_id]);
+
+    responseObj.json(books);
+  } catch (err) {
+    console.log(err);
+  }
+});
+
 // DELETE Route to remove a user from the database
 router.delete('/user/:id', async (requestObj, responseObj) => {
   const user_id = requestObj.params.id;
