@@ -1,44 +1,17 @@
 const router = require('express').Router();
 
+const user_controller = require('../controllers/user_controller');
+
 const User = require('../models/User');
 const Book = require('../models/Book');
 
 
 // localhost:3333/api/users
 // Route to retreive/GET all users from the json database
-router.get('/users', async (requestObj, responseObj) => {
-  // Make a query to the db and get all rows from the users table
-  try {
-    const users = await User.findAll();
-
-    responseObj.json(users);
-  } catch (err) {
-    console.log(err);
-  }
-
-});
+router.get('/users', user_controller.getAllUsers);
 
 // Route to add a user to the json database
-router.post('/users', async (requestObj, responseObj) => {
-  // Get the old users array
-  const userData = requestObj.body;
-
-  try {
-    const user = await User.create(userData);
-
-    responseObj.json({
-      message: 'User added successfully!',
-      user: user
-    });
-  } catch (err) {
-    const messages = err.errors.map(eObj => eObj.message);
-
-    responseObj.json({
-      error: 401,
-      messages: messages
-    });
-  }
-});
+router.post('/users', user_controller.createUser);
 
 // GET Route to return a user by ID
 router.get('/user', async (requestObj, responseObj) => {
