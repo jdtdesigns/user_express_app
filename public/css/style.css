@@ -1,3 +1,4 @@
+/* Resets */
 body {
   background: #555;
   color: #eee;
@@ -5,12 +6,74 @@ body {
   padding: 8px 3%;
 }
 
-.text-center {
-  text-align: center;
+p {
+  line-height: 1.5;
 }
 
 p span {
   background: #222;
   padding: 2px 4px;
   color: yellow;
+}
+
+a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+  border: 1px solid white;
+  padding: 5px 8px;
+}
+
+a:hover {
+  background: white;
+  color: #555;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 380px;
+  margin: 15px auto 0;
+}
+
+form > * {
+  padding: 8px 10px;
+  margin-bottom: 5px;
+  border: none;
+}
+
+form button {
+  background: #1dda60;
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+/* Global Classes */
+.text-center {
+  text-align: center;
+}
+
+.row {
+  display: flex;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.hide {
+  display: none;
+}
+
+/* Custom Styles */
+p.message {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 3px 0;
+  margin: 0;
+  background: #1ee023;
+  color: #fff;
+  width: 100%;
 }
