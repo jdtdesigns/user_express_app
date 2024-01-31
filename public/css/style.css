@@ -58,6 +58,10 @@ form button {
   display: flex;
 }
 
+.col {
+  flex: 1;
+}
+
 .justify-center {
   justify-content: center;
 }

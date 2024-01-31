@@ -4,10 +4,10 @@ const PORT = 3333;
 
 const app = express();
 
-const user_routes = require('./routes/user_routes');
-const book_routes = require('./routes/book_routes');
-const view_routes = require('./routes/view_routes');
-const form_routes = require('./routes/form_routes');
+const user_routes = require('./controllers/user_routes');
+const book_routes = require('./controllers/book_routes');
+const view_routes = require('./controllers/view_routes');
+const form_routes = require('./controllers/form_routes');
 
 // Import the sequelize connection
 const db = require('./db/connection');

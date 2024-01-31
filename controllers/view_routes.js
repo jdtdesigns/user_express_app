@@ -11,4 +11,9 @@ router.get('/create/book', (requestObj, responseObj) => {
   responseObj.sendFile(path.join(__dirname, '../public/book_form.html'));
 });
 
+// Show the data page
+router.get('/data', (requestObj, responseObj) => {
+  responseObj.sendFile(path.join(__dirname, '../public/data.html'));
+});
+
 module.exports = router;
