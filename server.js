@@ -1,5 +1,8 @@
 const express = require('express');
+const { engine } = require('express-handlebars');
+const session = require('express-session');
 
+require('dotenv').config();
 const PORT = 3333;
 
 const app = express();
@@ -19,6 +22,19 @@ app.use(express.urlencoded({ extended: false }));
 
 // Share or create a GET route for every file in the public folder
 app.use(express.static('./public'));
+
+// Set up Handlebars
+app.engine('hbs', engine({ extname: '.hbs' }));
+app.set('view engine', 'hbs');
+app.set('views', './views');
+
+// Initialize Sessions
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: true,
+  // cookie: { maxAge: 60 * 60 * 1000 }
+}))
 
 // Load Routes
 app.use('/api', [user_routes, book_routes]);

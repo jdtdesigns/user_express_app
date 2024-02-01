@@ -81,3 +81,7 @@ p.message {
   color: #fff;
   width: 100%;
 }
+
+p.auth-error {
+  color: #fc444d;
+}

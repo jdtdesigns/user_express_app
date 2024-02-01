@@ -1,0 +1,13 @@
+<a href="/">Go Back</a>
+
+<h1 class="text-center">Log In</h1>
+
+{{#each errors}}
+  <p class="auth-error text-center">{{this}}</p>
+{{/each}}
+
+<form action="/login" method="POST">
+  <input name="email" type="email" placeholder="Enter the email address">
+  <input name="password" type="password" placeholder="Enter the password">
+  <button>Submit</button>
+</form>

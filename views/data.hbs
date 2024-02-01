@@ -1,0 +1,17 @@
+<a href="/">Go Back</a>
+<br>
+<br>
+
+<main class="row">
+  <section class="user-output col">
+    <h1>Welcome, {{user.username}}</h1>
+    <hr>
+    {{#each user.books}}
+      <div>
+        <h3>Title: {{title}}</h3>
+        <p>Author: {{author}}</p>
+        <p>Release Date: {{formatted_date}}</p>
+      </div>
+    {{/each}}
+  </section>
+</main>
